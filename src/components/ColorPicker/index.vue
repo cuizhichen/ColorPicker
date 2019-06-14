@@ -42,9 +42,18 @@ export default {
   },
 
   props: {
-    value: String,
-    show: Boolean,
-    colorFormat: String
+    value: {
+      type: String,
+      default: "#c83aaa"
+    },
+    show: {
+      type: Boolean,
+      default: true
+    },
+    colorFormat: {
+      type: String,
+      default: "hex"
+    }
   },
 
   data() {
