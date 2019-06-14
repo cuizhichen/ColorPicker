@@ -1,28 +1,64 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="show = !show">{{ show ? '隐藏' : '显示' }}</button>
+    <button @click="switchFormat">切换颜色格式</button>
+    <div class="current-color">当前颜色：{{color}}</div>
+    <color-picker v-model="color" :color-format="format" :show="show"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ColorPicker from "@/components/ColorPicker";
 
 export default {
-  name: 'app',
+  name: "app",
+
   components: {
-    HelloWorld
+    ColorPicker
+  },
+
+  data() {
+    return {
+      color: "#c83aaa",
+      show: true,
+      format: "hex"
+    };
+  },
+
+  methods: {
+    switchFormat() {
+      this.format = this.format === "hex" ? "rgb" : "hex";
+    }
   }
-}
+};
 </script>
 
-<style>
+<style lang='stylus'>
+$mc = #409eff;
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 50px;
+
+  button {
+    background: #fff;
+    padding: 4px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+    margin-right: 20px;
+    color: #555;
+
+    &:hover {
+      border-color: $mc;
+      color: $mc;
+    }
+  }
+
+  .current-color {
+    margin-bottom: 24px;
+  }
 }
 </style>
