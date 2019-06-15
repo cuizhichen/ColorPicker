@@ -3,18 +3,18 @@
     <button @click="show = !show">{{ show ? '隐藏' : '显示' }}</button>
     <button @click="switchFormat">切换颜色格式</button>
     <div class="current-color">当前颜色：{{color}}</div>
-    <color-picker v-model="color" :color-format="format" :show.sync="show"/>
+    <ck-color-picker v-model="color" :color-format="format" :show.sync="show"/>
   </div>
 </template>
 
 <script>
-import ColorPicker from "@/components/ColorPicker";
+import CkColorPicker from "@/components/ColorPicker";
 
 export default {
   name: "app",
 
   components: {
-    ColorPicker
+    CkColorPicker
   },
 
   data() {
