@@ -6,9 +6,12 @@
 
 ## 说明
 
-> 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^ <br/>
-> 或者您可以 "follow" 一下，我会不断开源更多的有趣的项目 <br/>
-> 特别感谢[@Eeearth-Van](https://github.com/Eeearth-Van)提供的算法支持，辛苦了🌹 <br/>
+> 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^ 
+
+> 或者您可以 "follow" 一下，我会不断开源更多的有趣的项目 
+
+> 特别感谢[@Eeearth-Van](https://github.com/Eeearth-Van)提供的算法支持，辛苦了🌹 
+
 > 如有问题请直接在 Issues 中提，或者您有什么更好的建议
 
 ## 安装
