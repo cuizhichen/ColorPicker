@@ -1,6 +1,6 @@
 # ck-color-picker
 
-> 基于Vue的颜色选择器插件
+> 基于Vue的颜色选择器插件 <br/>
 > 如有问题请直接在 Issues 中提，或者您有什么更好的建议
 
 [演示地址](https://zcuizhichen.github.io/colorPickerPage/)
@@ -55,23 +55,23 @@ Vue.use(ckColorPicker)
     <tr>
         <td><code>v-model/value</code></td>
         <td>颜色绑定值</td>
-        <td>string</td>
-        <td>—</td>
-        <td>—</td>
+        <td style='text-align:center'>string</td>
+        <td style='text-align:center'>—</td>
+        <td style='text-align:center'>—</td>
     </tr>
     <tr>
         <td><code>color-format</code></td>
         <td>输出颜色的格式</td>
-        <td>string</td>
-        <td>hex/rgb</td>
-        <td>rgb</td>
+        <td style='text-align:center'>string</td>
+        <td style='text-align:center'>hex/rgb</td>
+        <td style='text-align:center'>rgb</td>
     </tr>
     <tr>
         <td><code>show.sync</code></td>
         <td>是否显示组件</td>
-        <td>boolean</td>
-        <td>true/false</td>
-        <td>true</td>
+        <td style='text-align:center'>boolean</td>
+        <td style='text-align:center'>true/false</td>
+        <td style='text-align:center'>true</td>
     </tr>
 </table>
 
