@@ -18,8 +18,13 @@ export default {
     return {
       thumbPosition: {
         top: "0px"
-      }
+      },
+      sideBarHeight: null
     };
+  },
+
+  mounted() {
+    this.sideBarHeight = this.$refs.sideBarBg.getBoundingClientRect().height;
   },
 
   methods: {
@@ -73,7 +78,7 @@ export default {
     },
 
     barClick($event) {
-      let { height } = this.$refs.sideBarBg.getBoundingClientRect();
+      let height = this.sideBarHeight;
       let top = $event.offsetY;
 
       this.changeBg(top, height);
@@ -92,6 +97,24 @@ export default {
       this.bgColor.r = r;
       this.bgColor.g = g;
       this.bgColor.b = b;
+    },
+
+    // 通过选择或输入背景颜色修改时，重新计算calcTop
+    calcTop() {
+      let { r, g, b } = this.bgColor;
+      let height = this.sideBarHeight;
+
+      let top = 0;
+      let total = height / 6;
+
+      if (r === 255 && b === 0) top = (g / 255) * total;
+      if (g === 255 && b === 0) top = (r / 255 + 1) * total;
+      if (g === 255 && r === 0) top = (b / 255 + 2) * total;
+      if (b === 255 && r === 0) top = (g / 255 + 3) * total;
+      if (b === 255 && g === 0) top = (r / 255 + 4) * total;
+      if (r === 255 && g === 0) top = (b / 255 + 5) * total;
+
+      this.thumbPosition.top = top + "px";
     }
   }
 };

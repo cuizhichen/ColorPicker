@@ -4,7 +4,7 @@
       <div class="color-picker-inner">
         <div class="color-picker-up">
           <color-panel ref="colorPanel" :bgColor="bgColor" :showColor="showColor"/>
-          <color-sidebar :bgColor.sync="bgColor" @changeShow="changeShow"/>
+          <color-sidebar ref="colorSidebar" :bgColor.sync="bgColor" @changeShow="changeShow"/>
         </div>
         <color-opacity :showColor="showColor"/>
         <color-select :showColor="showColor" :calcBg="calcBg"/>
@@ -12,8 +12,8 @@
           <div class="color-number">
             <input type="text" :value="colorToRgba" @change="onChange">
           </div>
-          <div class="clear">清空</div>
-          <div class="confirm">确定</div>
+          <div class="color-random" @click="colorRandom">随机</div>
+          <div class="color-confirm" @click="$emit('update:show', false)">确定</div>
         </div>
       </div>
     </div>
@@ -153,7 +153,7 @@ export default {
       this.showColor.b = this.calcColorNumber(list[2]);
       this.showColor.a = list[3] || 1;
 
-      this.$refs.colorPanel.calcXY();
+      // 修改完当前颜色，重新计算背景色
       this.calcBg();
     },
 
@@ -206,6 +206,7 @@ export default {
     },
 
     // 改变颜色时，计算出背景颜色
+    // 背景色修改完成后调用子组件修改color-panel和color-sidebar的位置
     calcBg() {
       let { r, g, b } = this.showColor;
       let newColor = [
@@ -232,11 +233,27 @@ export default {
       newColor.forEach(e => {
         this.bgColor[e.name] = e.value;
       });
+
+      this.$refs.colorPanel.calcXY();
+
+      // 计算完成需对sidebar组件滑块的位置重新定位
+      this.$refs.colorSidebar.calcTop();
     },
 
     // 当sidebar组件改变背景色时，调用colorPanel组件的方法，计算当前指针所在的颜色
     changeShow() {
       this.$refs.colorPanel.changeShowColor();
+    },
+
+    // 颜色随机功能 透明度默认为1
+    colorRandom() {
+      for (let key in this.showColor) {
+        this.showColor[key] = parseInt(Math.random() * 255);
+        if (key === "a") this.showColor[key] = 1;
+      }
+
+      // 修改完当前颜色，重新计算背景色
+      this.calcBg();
     }
   }
 };
@@ -301,7 +318,7 @@ $mc = #409eff;
         }
       }
 
-      .clear {
+      .color-random {
         margin-left: auto;
         margin-right: 16px;
         color: $mc;
@@ -312,7 +329,7 @@ $mc = #409eff;
         }
       }
 
-      .confirm {
+      .color-confirm {
         padding: 8px 16px;
         border: 1px solid #ddd;
         border-radius: 4px;
