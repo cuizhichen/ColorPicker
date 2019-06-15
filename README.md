@@ -1,6 +1,7 @@
 # ck-color-picker
 
 > 基于Vue的颜色选择器插件
+> 如有问题请直接在 Issues 中提，或者您有什么更好的建议
 
 [演示地址](https://zcuizhichen.github.io/colorPickerPage/)
 
@@ -23,7 +24,7 @@ Vue.use(ckColorPicker)
 
 ```js
 <template>
-  <ck-color-picker v-model="color" v-bind:show.sync='show'/>
+  <ck-color-picker v-model="color" :show.sync='show'/>
 </template>
 <script>
   export default {
@@ -55,8 +56,8 @@ Vue.use(ckColorPicker)
         <td><code>v-model/value</code></td>
         <td>颜色绑定值</td>
         <td>string</td>
-        <td>——</td>
-        <td>——</td>
+        <td>—</td>
+        <td>—</td>
     </tr>
     <tr>
         <td><code>color-format</code></td>
