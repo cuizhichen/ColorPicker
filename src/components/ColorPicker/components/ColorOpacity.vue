@@ -1,6 +1,6 @@
 <template>
   <div class="color-opacity">
-    <div class="color-opacity-bar" ref="opacityBar" :style="{ background }" @mousedown="barClick"></div>
+    <div class="color-opacity-bar" ref="opacityBar" :style="background" @mousedown="barClick"></div>
     <div class="color-opacity-thumb" :style="thumbPosition" @mousedown="onMousedown"></div>
   </div>
 </template>
@@ -29,7 +29,9 @@ export default {
       let start = `rgba(${r},${g},${b},0)`;
       let end = `rgba(${r},${g},${b})`;
 
-      return `linear-gradient(to right, ${start} 0%, ${end} 100%)`;
+      return {
+        background: `linear-gradient(to right, ${start} 0%, ${end} 100%)`
+      };
     }
   },
 
