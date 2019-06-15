@@ -79,5 +79,5 @@ Vue.use(ckColorPicker)
 `change`颜色值改变的时候触发
 
 ``` js
-<colorPicker v-model="color" @change="headleChangeColor" />
+<ck-color-picker v-model="color" @change="headleChangeColor" />
 ```
