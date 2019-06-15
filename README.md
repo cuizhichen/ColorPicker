@@ -1,15 +1,22 @@
 # ck-color-picker
 
 > 基于Vue的颜色选择器插件 <br/>
-> 如有问题请直接在 Issues 中提，或者您有什么更好的建议
 
 [演示地址](https://zcuizhichen.github.io/colorPickerPage/)
+
+## 说明
+
+> 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^ <br/>
+> 或者您可以 "follow" 一下，我会不断开源更多的有趣的项目 <br/>
+> 特别感谢[@Eeearth-Van](https://github.com/Eeearth-Van)提供的算法支持，辛苦了🌹 <br/>
+> 如有问题请直接在 Issues 中提，或者您有什么更好的建议
 
 ## 安装
 
 ``` bash
 $ npm install ck-color-picker -S
 ```
+
 ## 使用
 
 在 `main.js` 文件中引入插件并注册
