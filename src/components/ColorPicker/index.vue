@@ -166,6 +166,7 @@ export default {
 
       // 判断是否为16进制
       if (/[^0-9a-f]/g.test(color)) return;
+
       // 判读是#000 & #000000 格式
       // 将其转换成rgb色号数组
       if (color.length === 3) {
@@ -193,8 +194,11 @@ export default {
         if (key === "a") continue;
         if (this.showColor[key] === null) return;
 
-        value += this.showColor[key].toString(16);
+        let v = parseInt(this.showColor[key]).toString(16);
+        if (v.length === 1) v += v;
+        value += v;
       }
+
       return value;
     },
 

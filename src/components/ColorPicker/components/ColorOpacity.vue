@@ -27,7 +27,7 @@ export default {
     background() {
       let { r, g, b } = this.showColor;
       let start = `rgba(${r},${g},${b},0)`;
-      let end = `rgba(${r},${g},${b})`;
+      let end = `rgb(${r},${g},${b})`;
 
       return {
         background: `linear-gradient(to right, ${start} 0%, ${end} 100%)`
