@@ -2,7 +2,7 @@
 
 > 基于Vue的颜色选择器插件 <br/>
 
-[演示地址](https://zcuizhichen.github.io/colorPickerPage/)
+[演示地址](https://cuizhichen.github.io/colorPickerPage/)
 
 ## 说明
 
